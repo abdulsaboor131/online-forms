@@ -11,16 +11,23 @@ import CreditAuth from './forms/CreditAuth';
 import {styled} from "@mui/material/styles"
 
 
-const Container = styled(Box)({
-  // marginLeft:"300px",
-  })
-const Form = styled(Box)({
-  backgroundColor:"#e8e8e8",
+const Container = styled(Box)(({theme})=>({
+  [theme.breakpoints.down("md")]:{
+    width:"100%"
+  }
+  }))
+const Form = styled(Box)(({theme})=>({
+  backgroundColor:"white",
   width:"750px",
   margin:"90px auto 40px auto",
   padding:"20px",
-  borderRadius:"10px"
-  })
+  borderRadius:"10px",
+  // boxShadow: "inset 0 0 2000px rgba(62, 73, 98,.3)"
+  boxShadow: "0px 0px 5px 5px rgba(62, 73, 98,.3)",
+  [theme.breakpoints.down("md")]:{
+    width:"auto"
+  }
+  }))
 const Heading = styled(Typography)({
     textAlign:"center",
     fontWeight:"700",
@@ -52,8 +59,8 @@ export default function Forms() {
     <Container>
       <Form>
       <Heading>Online Applications</Heading>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider',display:"flex",justifyContent:"space-around" }}>
-        <Tabs TabIndicatorProps={{style:{color:"pink"}}} value={value} onChange={handleChange} aria-label="basic tabs example">
+      <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
+        <Tabs value={value} TabIndicatorProps={{sx:{display:{xs:"none",md:"block"}}}} sx={{'& .MuiTabs-flexContainer':{flexWrap:{xs:"wrap",md:"nowrap"},justifyContent:"center"}}} onChange={handleChange} aria-label="basic tabs example">
           <Tab style={{fontWeight:"600"}} label="Business Details" {...a11yProps(0)} />
           <Tab style={{fontWeight:"600"}} label="Equipment Details" {...a11yProps(1)} />
           <Tab style={{fontWeight:"600"}} label="Ownership Details" {...a11yProps(2)} />

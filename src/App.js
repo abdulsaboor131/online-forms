@@ -5,12 +5,17 @@ import Topbar from './components/Topbar'
 import Forms from './Forms'
 import { ThemeProvider } from "@mui/material/styles";
 import {theme} from "./theme"
+import backgroundImage from "./assets/background.jpg"
 
 const Container = styled(Box)({
   width:"100%",
   height:"100vh",
-  overflowX:"hidden",
-  overflowY:"scroll"
+  overflowX:"none",
+  overflowY:"scroll",
+  background:`linear-gradient(to bottom, rgba(255,255,255, 0.52), rgba(62, 73, 98, 0.5)) ,url(${backgroundImage})`,
+  backgroundRepeat:"no-repeat",
+  backgroundSize:"cover",
+  backgroundPosition:"fixed",
 })
 
 const App = () => {
