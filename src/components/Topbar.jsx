@@ -22,7 +22,7 @@ const Topbar = () => {
     const [open, setOpen] = useState(false)
     return (
         <Container>
-            <Sidebar open={Boolean(open)} setOpen={setOpen} />
+            {/* <Sidebar open={Boolean(open)} setOpen={setOpen} /> */}
             <Box height="100%" display={"flex"} alignItems="center" justifyContent="space-between">
                 <Box display="flex" gap="50px" alignItems={"center"}>
                     <IconButton onClick={() => setOpen(!open)}>
